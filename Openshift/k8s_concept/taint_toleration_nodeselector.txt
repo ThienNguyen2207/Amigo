@@ -1,0 +1,1 @@
+https://blog.opstree.com/2021/05/11/taints-and-tolerations-usage-with-node-selector-in-kubernetes-scheduling/
