@@ -1,0 +1,47 @@
+apiVersion: v1
+baseDomain: ocp4.com.vn
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 4
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: lotte
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  vsphere:
+    apiVIP: 10.0.16.10
+    cluster: AMIGO LAB
+    datacenter: Amigo
+    defaultDatastore: AMIGO LAB 02
+    ingressVIP: 10.0.16.11
+    network: PG-VLAN190
+    password: Software@123
+    username: ocp-user@vsphere.local
+    vCenter: vcenter.amigo.local
+    folder: /Amigo/vm/Software Folder
+    resourcePool: /Amigo/host/AMIGO LAB/Resources/software
+publish: External
+pullSecret: '<inhere>'
+sshKey: |
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII55nGt2msBLBkwEMXmEgSFHYYdNsFz9Yb1KgnLRQ9zP ssc2@localhost.localdomain
+additionalTrustBundle: |
+    -----BEGIN CERTIFICATE-----
+    <certhere>
+    -----END CERTIFICATE-----
